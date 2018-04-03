@@ -1,0 +1,137 @@
+import UIKit
+import CoreBluetooth
+
+class MainController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate {
+    
+    struct Device {
+        advertisingUUID = ""
+    }
+    
+    //Bluetooth Properties
+    var CBCM: CBCentralManager!
+    var discoveredDevices: [CBPeripheral?] = []
+    var OBD2: [CBPeripheral?] = []
+
+    class BluetoothItem: NSObject {
+        
+        var Name: String
+        var RangeDistance: String
+        var GattProfileNumber: String
+        var UUIDNumber: String
+        
+        
+        init(Name: String, RangeDistance: String, GattProfileNumber: String, UUIDNumber: String) {
+            
+            self.Name = Name
+            self.RangeDistance = RangeDistance
+            self.GattProfileNumber = GattProfileNumber
+            self.UUIDNumber = UUIDNumber
+            
+        }
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        CBCM = CBCentralManager(delegate: self, queue: nil)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    /////////////////// Connections to UI //////////////////////
+    // scan for bluetooth device
+    func startScan() {
+        let advertID = CBUUID(string: Device.advertisingUUID)
+        CBCM.scanForPeripherals(withServices: [advertID], options: nil)
+    }
+    
+    // connects to device
+    func addDevice(OBD2: CBPeripheral) {
+        CBCM.stopScan()
+        CBCM.connect(OBD2, options: nil)
+    }
+    
+    func deleteDevice(OBD2: CBPeripheral) {
+        CBCM.cancelPeripheralConnection(OBD2)
+    }
+    
+    ////////////////// Central Manager Properties //////////////////////
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        // What happens when the State of the Central Manager has changed?
+        
+        switch central.state {
+        case .poweredOff:
+            statusUpdate = "Bluetooth is currently powered off."
+        case .unsupported:
+            statusUpdate = "Bluetooth Smart is not supported on this device."
+        case .unauthorized:
+            statusUpdate = "This app is not authorized to use Bluetooth Smart."
+        case .resetting:
+            statusUpdate = "Bluetooth Smart is resetting. Status pending."
+        case .unknown:
+            statusUpdate = "State unknown."
+        case .poweredOn:
+            showAlert = false;
+            statusUpdate = "Bluetooth Smart is ready to communicate."
+            print(statusUpdate)
+        }
+    }
+
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        print("centralManager didDiscoverPeripheral - CBAdvertisementDataLocalNameKey is \"\(CBAdvertisementDataLocalNameKey)\"")
+        
+        // Retrieve the peripheral name from the advertisement data using the "CBAdvDataLocalName" key
+        if let peripheralName = advertisementData[CBAdvertisementDataLocalNameKey] as? String {
+            print("NEXT PERIPHERAL NAME: \(peripheralName)")
+            print("NEXT PERIPHERAL UUID: \(peripheral.identifier)")
+        }
+    }
+    
+    // centralManager didConnect
+    // called on successful connection to peripheral
+    // begins service discovery
+    
+    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        print("Successfully Connected to Device")
+        peripheral.discoverServices(nil)
+    }
+    
+    func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+        print("********** FAILURE TO CONNECT **********")
+    }
+
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        print("Jumper discconected")
+        if error != nil {
+            print("********* DISCCONECT DETAILS: \(error!.localizedDescription)**********")
+        }
+        
+    }
+    
+    ////////////////////// Peripheral properties ///////////////////////
+    
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+        if error != nil {
+            print("ERROR DSICOVERING SERVICES: \(error?.localizedDescription)")
+            return
+        }
+        if let services = peripheral.services {
+            for service in services {
+                peripheral.discoverCharacteristics(nil, for: service)
+            }
+        }
+    }
+
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+        if error != nil {
+            print("ERROR DISCOVERING CHARACTERISTICS: \(error?.localizedDescription)")
+            return
+        }
+        
+        
+    }
+    
+}
+
