@@ -1,0 +1,6 @@
+framework module Pods_CarManager_Final_ProjectUITests {
+  umbrella header "Pods-CarManager Final ProjectUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
