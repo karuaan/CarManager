@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import OBD2Swift
 
 class ViewController: UIViewController {
     
+    // object for requesting vehicle metrics
     let obd = OBD2()
 
     override func viewDidLoad() {
@@ -23,6 +23,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func connectButton(_ sender: Any) {
+        //obd.requestTroubleCodes()
+        obd.connect { [weak self] (success, error) in
+            OperationQueue.main.addOperation {
+                if let error = error {
+                    print("OBD Connection failed with \(error)")
+                }
+            }
+        }
+    }
+    
 }
 

@@ -29,6 +29,9 @@
                                 <rect key="frame" x="89" y="560" width="197" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Connect to Car"/>
+                                <connections>
+                                    <action selector="connectButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CVQ-YU-LSd"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tGy-px-9vB">
                                 <rect key="frame" x="31" y="170" width="317" height="315"/>
@@ -41,12 +44,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
+            <point key="canvasLocation" x="-506" y="269"/>
         </scene>
-        <!--View Controller-->
+        <!--Details Page View Controller-->
         <scene sceneID="ln2-5m-0GW">
             <objects>
-                <viewController id="w03-og-EaX" sceneMemberID="viewController">
+                <viewController id="w03-og-EaX" customClass="DetailsPageViewController" customModule="CarManager_Final_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dfZ-K2-GHk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,6 +58,9 @@
                                 <rect key="frame" x="97" y="514" width="164" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Obtain VIN Number"/>
+                                <connections>
+                                    <action selector="obtainVIN:" destination="w03-og-EaX" eventType="touchUpInside" id="H4p-bl-Y62"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="labelVIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KB9-Q7-zhz">
                                 <rect key="frame" x="66" y="552" width="242" height="21"/>
@@ -74,6 +80,9 @@
                                 <rect key="frame" x="82" y="39" width="194" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Check Maintenance"/>
+                                <connections>
+                                    <action selector="checkMaintenance:" destination="w03-og-EaX" eventType="touchUpInside" id="cFu-Pa-suU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SX9-RZ-Q0A">
                                 <rect key="frame" x="27" y="405" width="305" height="30"/>
@@ -87,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8t-2L-XYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="741.60000000000002" y="117.39130434782609"/>
+            <point key="canvasLocation" x="-506" y="924"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="YaU-mp-69q">
@@ -140,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwq-rC-kOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1364" y="118.29085457271366"/>
+            <point key="canvasLocation" x="84" y="827"/>
         </scene>
     </scenes>
 </document>

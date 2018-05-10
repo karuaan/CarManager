@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		037C56056E606E0D545C24B4 /* Pods_CarManager_Final_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E45DB1D6D7E874ECCF6449 /* Pods_CarManager_Final_ProjectTests.framework */; };
 		0D00EA5330CC8F4185FD9150 /* Pods_CarManager_Final_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1729BD4DCD4E598B8DA3AF60 /* Pods_CarManager_Final_Project.framework */; };
+		8477067E20A38F75001C1A41 /* DetailsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477067D20A38F75001C1A41 /* DetailsPageViewController.swift */; };
 		84FB573320A116920011B6F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB573220A116920011B6F7 /* AppDelegate.swift */; };
 		84FB573520A116920011B6F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB573420A116920011B6F7 /* ViewController.swift */; };
 		84FB573820A116920011B6F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FB573620A116920011B6F7 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		48E45DB1D6D7E874ECCF6449 /* Pods_CarManager_Final_ProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarManager_Final_ProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49DFF1A29BDC0E46FE3640C5 /* Pods-CarManager Final Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarManager Final Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarManager Final Project/Pods-CarManager Final Project.debug.xcconfig"; sourceTree = "<group>"; };
 		6AAF345ED9F0CD75E3EDAEE4 /* Pods-CarManager Final Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarManager Final Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarManager Final Project/Pods-CarManager Final Project.release.xcconfig"; sourceTree = "<group>"; };
+		8477067D20A38F75001C1A41 /* DetailsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageViewController.swift; sourceTree = "<group>"; };
 		84FB572F20A116920011B6F7 /* CarManager Final Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CarManager Final Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FB573220A116920011B6F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84FB573420A116920011B6F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				84FB573220A116920011B6F7 /* AppDelegate.swift */,
 				84FB573420A116920011B6F7 /* ViewController.swift */,
+				8477067D20A38F75001C1A41 /* DetailsPageViewController.swift */,
 				84FB573620A116920011B6F7 /* Main.storyboard */,
 				84FB573920A116920011B6F7 /* Assets.xcassets */,
 				84FB573B20A116920011B6F7 /* LaunchScreen.storyboard */,
@@ -459,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84FB573520A116920011B6F7 /* ViewController.swift in Sources */,
+				8477067E20A38F75001C1A41 /* DetailsPageViewController.swift in Sources */,
 				84FB573320A116920011B6F7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
